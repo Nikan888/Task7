@@ -8,9 +8,9 @@ namespace Task7
 {
     public class Shop
     {
-        public static List<Product> Products { get; private set; }
+        public List<Product> Products { get; private set; }
 
-        public static List<Order> Orders { get; private set; }
+        public List<Order> Orders { get; private set; }
 
         public Shop()
         {
@@ -22,17 +22,17 @@ namespace Task7
             Products = products;
         }
 
-        public static void AddOrder(List<Product> list, Customer customer)
+        public void AddOrder(List<Product> list, Customer customer)
         {
             Orders.Add(new Order(list, customer));
         }
 
-        public static void RemoveOrder(Order order)
+        public void RemoveOrder(Order order)
         {
             Orders.Remove(order);
         }
 
-        public static void OutputProducts()
+        public void OutputProducts()
         {
             Console.WriteLine("All products:");
             foreach (var prod in Products)
@@ -41,7 +41,7 @@ namespace Task7
             }
         }
 
-        public static void OutputOrders()
+        public void OutputOrders()
         {
             Console.WriteLine("All orders:");
             foreach (var order in Orders)
@@ -50,7 +50,7 @@ namespace Task7
             }
         }
 
-        public static void Pay()
+        public void Pay()
         {
             if (Order.Customer.CurrentSum >= Order.TotalPrice)
             {

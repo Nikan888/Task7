@@ -22,7 +22,9 @@ namespace Task7
                 new Product("SSD", "Samsung", 150)
             };
 
-            Shop.OutputProducts();
+            Shop shop = new Shop(products);
+
+            shop.OutputProducts();
             bool exit = false;
             do
             {
@@ -49,10 +51,10 @@ namespace Task7
                 switch (number)
                 {
                     case 1:
-                        Shop.AddOrder(products, customer);
+                        shop.AddOrder(products, customer);
                         break;
                     case 2:
-                        Shop.OutputOrders();
+                        shop.OutputOrders();
                         break;
                     case 3:
                         Console.WriteLine("Choose number of order");
@@ -64,19 +66,19 @@ namespace Task7
                             {
                                 if (n < 1 || n > 7)
                                     Console.WriteLine("Input menu item is not exist. " +
-                                        "Input value must be from 1 to " + Shop.Orders.Count);
+                                        "Input value must be from 1 to " + shop.Orders.Count);
                             }
                             else
                                 Console.WriteLine("Number must be int32. Please try again.");
-                        } while (n < 1 || n > Shop.Orders.Count);
-                        Shop.RemoveOrder(Shop.Orders[n]);
+                        } while (n < 1 || n > shop.Orders.Count);
+                        shop.RemoveOrder(shop.Orders[n]);
                         Console.WriteLine("Order deleted");
                         break;
                     case 4:
                         Console.WriteLine(customer.CurrentSum);
                         break;
                     case 5:
-                        Shop.Pay();
+                        shop.Pay();
                         break;
                     case 6:
                         exit = true;
